@@ -1,0 +1,33 @@
+
+.ORIG x3000
+
+
+LEA R1, ARRAY
+
+DO_WHILE_LOOP
+	GETC
+	OUT
+	
+	STR R0, R1, #0
+	ADD R1, R1, #1
+	
+	ADD R0, R0, #-10
+
+	BRnp  DO_WHILE_LOOP
+
+END_DO_WHILE_LOOP
+
+LDI R0, newline
+OUT
+
+LEA R0, ARRAY
+PUTS
+
+
+HALT
+
+ARRAY	.FILL	x4000
+newline	.FILL	'\n'
+
+
+.END
